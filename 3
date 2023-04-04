@@ -1,0 +1,276 @@
+import random
+
+print("Welcome to the Oregon Trail Game")
+print("You set off west with your family")
+input("PRESS ANY KEY TO START THE GAME")
+
+def challenge_1():
+    print("You hear a scream")
+    print("You see a bear attacking your son Jabbar")
+    print("You have two choices to save Jabbar")
+    print("a. You go and get your gun")
+    print("b. You run away")
+    choice_1 = input()
+    if choice_1 == "a":
+        print("You killed the bear and saved Jabbar")
+        return "alive"
+    elif choice_1 == "b":
+        print("You ran away and the bear ate your son Jabbar")
+        return "dead"
+    else:
+        print("You didn't choose either option and Jabbar died")
+        return "dead"
+
+def challenge_2():
+    print("You were on the way home and you meet a Witch and she asks you to choose a spell to cross")
+    print("You have two choices")
+    print("a. Red Spell")
+    print("b. Blue Spell")
+    choice_2 = input()
+    if choice_2 == "a":
+        print("You chose the wrong spell and died")
+        return "dead"
+    elif choice_2 == "b":
+        print("You somehow chose the correct spell and you live")
+        return "alive"
+    else:
+        print("You refused to choose and the Witch got angry and killed you")
+        return "dead"
+
+def challenge_3():
+    print("A member of the donner party asks you to choose a number between 4 and 9")
+    print("You must choose the correct number or else he will kill you")
+    choice_3 = int(input())
+    if choice_3 > 5 and choice_3 < 9:
+        print("Wow, you somehow survived")
+        return "alive"
+    else:
+        print("Unlucky, you try again")
+        return "dead"
+
+def challenge_4():
+    print("You have to cross a land known for snakes")
+    print("Pick a number between 10 and 15. If you pick the unlucky number, you die")
+    choice_4 = int(input())
+    if choice_4 < 10 or choice_4 > 15:
+        print("You couldn't follow the rules and died")
+        return "dead"
+    else:
+        if choice_4 != 13:
+            print("The snake does not attack you")
+            return "alive"
+        else:
+            print("You knew that was an unlucky number but you picked it anyway and died")
+            return "dead"
+
+def challenge_5():
+    print("You encounter a river, and there's no bridge to cross it")
+    print("You can either ford the river or wait for someone to help")
+    print("a. Ford the river")
+    print("b. Wait for help")
+    choice_5 = input()
+    if choice_5 == "a":
+        print("You made it across the river, but some of your supplies got wet and ruined")
+        return "alive"
+    elif choice_5 == "b":
+        print("You waited for help, but nobody came. You wasted valuable time and now you're low on supplies")
+        return "alive"
+    else:
+        print("You didn't choose either option and died")
+        return "dead"
+
+def challenge_6():
+    print("You come across a group of bandits who demand that you hand over all your belongings")
+    print("You have two choices")
+    print("a. Fight the bandits")
+    print("b. Give them all your belongings")
+    choice_6 = input()
+    if choice_6 == "a":
+        print("You were able to fight off the bandits and keep your belongings")
+        return "alive"
+    elif choice_6 == "b":
+        print("You gave up all your belongings to the bandits and continued on your journey empty-handed")
+        return "alive"
+    else:
+        print("You were unable to make a decision and the bandits killed you")
+        return "dead"
+
+def challenge_7():
+    print("You come across a river that you need to cross")
+    print("You have two choices")
+    print("a. Attempt to ford the river")
+    print("b. Pay for a ferry to cross the river")
+    choice_7 = input()
+    if choice_7 == "a":
+        river_depth = random.randint(1, 10)
+        if river_depth > 5:
+            print("You attempted to ford the river, but it was too deep and you drowned")
+            return "dead"
+        else:
+            print("You were able to ford the river safely")
+            return "alive"
+    elif choice_7 == "b":
+        print("You paid for the ferry and crossed the river safely")
+        return "alive"
+    else:
+        print("You were unable to make a decision and were swept away by the river")
+        return "dead"
+
+def challenge_8():
+    print("You come across a wagon that has broken down")
+    print("You have two choices")
+    print("a. Stop and help repair the wagon")
+    print("b. Continue on your journey and leave the wagon behind")
+    choice_8 = input()
+    if choice_8 == "a":
+        repair_success = random.randint(1, 10)
+        if repair_success > 5:
+            print("You were able to repair the wagon and continue on your journey")
+            return "alive"
+        else:
+            print("You were unable to repair the wagon and had to continue on your journey without it")
+            return "alive"
+    elif choice_8 == "b":
+        print("You continued on your journey without the wagon and made good time")
+        return "alive"
+    else:
+        print("You were unable to make a decision and were attacked by bandits while stopped")
+        return "dead"
+
+player_status = "alive"
+choice_history = []
+history = ""
+
+while player_status == "alive":
+    challenge_number = random.randint(1, 8)
+    choice_history.append(challenge_number)
+    if challenge_number == 1:
+        player_status = challenge_1()
+        history = history + "1 "
+    elif challenge_number == 2:
+        player_status = challenge_2()
+        history = history + "2 "
+    elif challenge_number == 3:
+        player_status = challenge_3()
+        history = history + "3 "
+    elif challenge_number == 4:
+        player_status = challenge_4()
+        history = history + "4 "
+    elif challenge_number == 5:
+        player_status = challenge_5()
+        history = history + "5 "
+    elif challenge_number == 6:
+        player_status = challenge_6()
+        history = history + "6 "
+    elif challenge_number == 7:
+        player_status = challenge_7()
+        history = history + "7 "
+    elif challenge_number == 8:
+        player_status = challenge_8()
+        history = history + "8 "
+while player_status == "alive":
+    challenge_number = random.randint(1, 8)
+    choice_history.append(challenge_number)
+    if challenge_number == 1:
+        player_status = challenge_1()
+        history = history + "1 "
+    elif challenge_number == 2:
+        player_status = challenge_2()
+        history = history + "2 "
+    elif challenge_number == 3:
+        player_status = challenge_3()
+        history = history + "3 "
+    elif challenge_number == 4:
+        player_status = challenge_4()
+        history = history + "4 "
+    elif challenge_number == 5:
+        player_status = challenge_5()
+        history = history + "5 "
+    elif challenge_number == 6:
+        player_status = challenge_6()
+        history = history + "6 "
+    elif challenge_number == 7:
+        player_status = challenge_7()
+        history = history + "7 "
+    elif challenge_number == 8:
+        player_status = challenge_8()
+        history = history + "8 "
+
+print("You are now dead. Good game.")
+savefile = "gamehistory.txt"
+with open(savefile, "w") as f:
+ f.write(history)
+ import random
+
+# Define the challenge functions
+def challenge_1():
+    # Code for challenge 1
+    print("Challenge 1")
+    return "alive"
+
+def challenge_2():
+    # Code for challenge 2
+    print("Challenge 2")
+    return "alive"
+
+def challenge_3():
+    # Code for challenge 3
+    print("Challenge 3")
+    return "alive"
+
+def challenge_4():
+    # Code for challenge 4
+    print("Challenge 4")
+    return "alive"
+
+def challenge_5():
+    # Code for challenge 5
+    print("Challenge 5")
+    return "alive"
+
+def challenge_6():
+    # Code for challenge 6
+    print("Challenge 6")
+    return "alive"
+
+def challenge_7():
+    # Code for challenge 7
+    print("Challenge 7")
+    return "alive"
+
+def challenge_8():
+    # Code for challenge 8
+    print("Challenge 8")
+    return "alive"
+
+
+# Initialize the game
+player_status = "alive"
+history = ""
+choice_history = []
+available_challenges = [challenge_1, challenge_2, challenge_3, challenge_4, challenge_5, challenge_6, challenge_7, challenge_8]
+
+# Play the game
+while player_status == "alive" and available_challenges:
+    challenge_function = random.choice(available_challenges)
+    challenge_number = available_challenges.index(challenge_function) + 1
+    choice_history.append(challenge_number)
+    player_status = challenge_function()
+    available_challenges.remove(challenge_function)
+    history = history + str(challenge_number) + " "
+
+print("Game over. Your history: " + history)
+result_challenge_1 = challenge_1()
+result_challenge_2 = challenge_2()
+result_challenge_3 = challenge_3()
+result_challenge_4 = challenge_4()
+result_challenge_5 = challenge_5()
+result_challenge_6 = challenge_6()
+result_challenge_7 = challenge_7()
+result_challenge_8 = challenge_8()
+
+# Determine the player's final outcome based on the results of the challenges
+if "dead" in [result_challenge_1, result_challenge_2, result_challenge_3, result_challenge_4, result_challenge_5, result_challenge_6, result_challenge_7, result_challenge_8]:
+    print("You did not make it to Oregon. Game Over.")
+else:
+    print("Congratulations! You made it to Oregon.")
